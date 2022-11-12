@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-const v1Router = require('./v1/routes/productsRoutes');
+const v1ProdRouter = require('./v1/routes/productsRoutes');
 const socketIO = require('socket.io');
 const http = require('http');
 
@@ -13,7 +13,7 @@ const publicPath = path.resolve(__dirname, './public');
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(publicPath));
-app.use('/api/v1', v1Router);
+app.use('/api/v1/productos', v1ProdRouter);
 
 let io = socketIO(server);
 
