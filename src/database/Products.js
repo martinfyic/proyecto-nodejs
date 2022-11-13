@@ -2,11 +2,7 @@ const DB = require('./db.json');
 const { saveToDB } = require('./helpers');
 
 const getAllProducts = async () => {
-	try {
-		return DB;
-	} catch (error) {
-		console.log(error);
-	}
+	return DB;
 };
 
 const getProductById = async req => {

@@ -21,14 +21,16 @@ const createNewProduct = async (req, res) => {
 	};
 
 	const createdProduct = await productService.createNewProduct(newProduct);
-	res.status(201).send({ status: 'OK', data: createdProduct });
+	res.redirect('/').send({ status: 'OK', data: createdProduct }).status(201);
 };
 
+//TODO ----
 const upDateOneProduct = (req, res) => {
 	const updatedProduct = productService.upDateOneProduct(req);
 	res.send('Update one product');
 };
 
+//TODO ----
 const deleteOneProduct = (req, res) => {
 	const deletedProduct = productService.deleteOneProduct(req);
 	res.send('Delete a product');
