@@ -2,23 +2,26 @@
 <html lang="es">
 	<head>
 		<%-include("./layouts/head.ejs")-%>
+		<script
+			defer
+			src="/socket.io/socket.io.js"
+		></script>
+		<script
+			defer
+			src="../js/main.js"
+		></script>
 	</head>
 	<body>
-		<h1 class="text-center text-primary fw-bolder mt-3 mb-5">
-			Agregar productos
-		</h1>
-		<%-include("./layouts/form.ejs")-%>
-		<div class="d-flex justify-content-center">
-			<a
-				class="text-decoration-none"
-				href="/productos"
-				><button
-					type="submit"
-					class="btn btn-outline-dark mb-3 px-5"
-				>
-					Productos
-				</button>
-			</a>
-
+		<nav class="navbar navbar-expand-lg bg-light">
+			<%-include("./layouts/navBar.ejs")-%>
+		</nav>
+		<h1 class="text-center text-dark fw-bolder mt-3 mb-5">Agregar productos</h1>
+		<form
+			action="./api/v1/productos"
+			method="post"
+			class="row container mx-auto d-flex justify-content-center"
+		>
+			<%-include("./layouts/form.ejs")-%>
+		</form>
 	</body>
 </html>
