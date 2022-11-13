@@ -1,16 +1,18 @@
 const Products = require('../database/Products');
 
-const getAllProducts = () => {
-	const allProducts = Products.getAllProducts();
+const getAllProducts = async () => {
+	const allProducts = await Products.getAllProducts();
 	return allProducts;
 };
 
-const getProductById = () => {
-	return;
+const getProductById = async req => {
+	const productById = await Products.getProductById(req);
+	return productById;
 };
 
-const createProduct = () => {
-	return;
+const createNewProduct = async newProduct => {
+	const createdProduct = await Products.createNewProduct(newProduct);
+	return createdProduct;
 };
 
 const upDateOneProduct = () => {
@@ -24,7 +26,7 @@ const deleteOneProduct = () => {
 module.exports = {
 	getAllProducts,
 	getProductById,
-	createProduct,
+	createNewProduct,
 	upDateOneProduct,
 	deleteOneProduct,
 };
