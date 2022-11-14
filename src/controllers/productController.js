@@ -21,7 +21,7 @@ const createNewProduct = async (req, res) => {
 	};
 
 	const createdProduct = await productService.createNewProduct(newProduct);
-	res.redirect('/').send({ status: 'OK', data: createdProduct }).status(201);
+	res.redirect('/');
 };
 
 //TODO ----

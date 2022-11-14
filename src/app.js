@@ -27,9 +27,21 @@ app.use('/api/v1/productos', v1ProdRouter);
 app.set('views', './src/public/views');
 app.set('view engine', 'ejs');
 
+const products = [];
+
 const io = new IOServer(httpServer);
+
 io.on('connection', socket => {
-	console.log('Cliente conectado...');
+	console.log('✅ Cliente conectado...');
+
+	socket.on('disconnect', () => {
+		console.log('❌ Cliente desconectado...');
+	});
+
+	socket.on('addProduct', addProd => {
+		products.push(addProd);
+		socket.emit('addedProd', products);
+	});
 });
 
 const serverOn = httpServer.listen(PORT, () => {

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
-		<%-include("./layouts/head.ejs")-%>
-		<script
-			defer
-			src="/socket.io/socket.io.js"
-		></script>
-		<script
-			defer
-			src="../js/main.js"
-		></script>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Probando</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg bg-light">
-			<%-include("./layouts/navBar.ejs")-%>
-		</nav>
-		<h1 class="text-center text-dark fw-bolder mt-3 mb-5">Agregar productos</h1>
-		<form
-			action="./api/v1/productos"
-			method="post"
-			class="row container mx-auto d-flex justify-content-center"
-		>
-			<%-include("./layouts/form.ejs")-%>
-		</form>
+		<h1 class="text-center fs-1 fw-bolder my-5">Prueba de socket.io</h1>
+
+		<%-include('./layouts/form.ejs')-%>
+
+		<section class="container mt-5">
+			<%-include('./layouts/table.ejs')-%>
+		</section>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./js/main.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>

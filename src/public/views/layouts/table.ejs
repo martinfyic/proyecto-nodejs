@@ -1,25 +1,11 @@
-<div class="d-flex flex-column justfy-content-center">
-	<table class="table table-dark table-borderless container table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Nombre</th>
-				<th scope="col">Precio</th>
-				<th scope="col">Foto</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% for (const prod of products) {%>
-			<tr>
-				<td><%=prod.title%></td>
-				<td><%=prod.price%></td>
-				<td>
-					<img
-						width="40"
-						src="<%= prod.thumbnail %>"
-					/>
-				</td>
-			</tr>
-			<%};%>
-		</tbody>
-	</table>
-</div>
+<h2 class="text-center fs-2 fw-bolder my-5">Lista de productos</h2>
+<table class="table mb-3">
+	<thead>
+		<tr>
+			<th scope="col">Nombre de producto</th>
+			<th scope="col">Precio</th>
+			<th scope="col">Imagen</th>
+		</tr>
+	</thead>
+	<tbody id="tableProdAdded"></tbody>
+</table>

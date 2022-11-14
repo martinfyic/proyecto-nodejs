@@ -1,50 +1,54 @@
-<div class="mb-5 col-9">
-	<label
-		for="titleProd"
-		class="form-label"
-		>Nombre del producto</label
-	>
-	<input
-		type="text"
-		class="form-control"
-		id="titleProd"
-		name="title"
-		required
-	/>
-</div>
-<div class="mb-5 col-9">
-	<label
-		for="priceProd"
-		class="form-label"
-		>Precio $</label
-	>
-	<input
-		type="number"
-		class="form-control"
-		id="priceProd"
-		name="price"
-		required
-	/>
-</div>
-<div class="mb-5 col-9">
-	<label
-		for="thumbnailProd"
-		class="form-label"
-		>Imagen del producto</label
-	>
-	<input
-		type="text"
-		class="form-control"
-		id="thumbnailProd"
-		name="thumbnail"
-		required
-	/>
-</div>
-<div class="d-flex justify-content-center">
-	<button
-		type="submit"
-		class="btn btn-dark mb-4 px-5"
-	>
-		Agregar
-	</button>
-</div>
+<form
+	id="formAddProd"
+	action=""
+	class="container"
+>
+	<h2 class="text-center fs-2 fw-bolder mt-2 mb-3">Agregar producto</h2>
+	<div class="mb-3">
+		<label
+			for="inputText"
+			class="form-label fw-bolder"
+			>Nombre de producto</label
+		>
+		<input
+			type="text"
+			class="form-control"
+			id="inputText"
+			required
+		/>
+	</div>
+	<div class="mb-3">
+		<label
+			for="inputPrice"
+			class="form-label fw-bolder"
+			>Precio</label
+		>
+		<input
+			type="number"
+			class="form-control"
+			id="inputPrice"
+			required
+		/>
+	</div>
+	<div class="mb-3">
+		<label
+			for="inputImage"
+			class="form-label fw-bolder"
+			>Imagen del producto</label
+		>
+		<input
+			type="text"
+			class="form-control"
+			id="inputImage"
+			required
+		/>
+	</div>
+	<div class="d-flex justify-content-center mt-5">
+		<button
+			id="btnAddProd"
+			class="btn btn-dark px-4"
+		>
+			Agregar
+		</button>
+	</div>
+</form>
