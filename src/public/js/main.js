@@ -29,16 +29,34 @@ form.addEventListener('submit', e => {
 });
 
 socket.on('addedProd', addedProd => {
-	console.log(addedProd);
 	const prodHTML = addedProd
 		.map(
 			prod =>
 				`<tr>
         <td>${prod.title}</td>
         <td>${prod.price}</td>
-        <td>${prod.image}</td>
+        <td><img width="60" src="${prod.image}" alt="${prod.title}"></td>
       </tr>`
 		)
 		.join(' ');
 	table.innerHTML = prodHTML;
+});
+
+const formChat = document.getElementById('formChat');
+const userName = document.getElementById('inputName');
+const message = document.getElementById('inputMessage');
+
+formChat.addEventListener('submit', e => {
+	e.preventDefault();
+
+	if (userName.value && message.value) {
+		socket.emit('sendMessage', {
+			name: userName.value,
+			message: message.value,
+		});
+	}
+});
+
+socket.on('messages', messages => {
+	console.log(messages);
 });

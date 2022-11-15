@@ -10,12 +10,16 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Probando</title>
+		<title>Socket.io | WebSocket</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 			crossorigin="anonymous"
+		/>
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔌</text></svg>"
 		/>
 	</head>
 	<body>
@@ -28,8 +32,12 @@
 
 		<%-include('./layouts/form.ejs')-%>
 
-		<section class="container mt-5">
+		<section class="container my-5">
 			<%-include('./layouts/table.ejs')-%>
+		</section>
+
+		<section class="container my-5">
+			<%-include('./layouts/chat.ejs')-%>
 		</section>
 
 		<script src="/socket.io/socket.io.js"></script>
