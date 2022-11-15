@@ -25,7 +25,7 @@
 	<body>
 		<%-include('./layouts/navBar.ejs')-%>
 		<header
-			class="container d-flex justify-content-center align-items-center flex-column mb-5"
+			class="container d-flex justify-content-around align-items-center flex-column my-5"
 		>
 			<%-include('./layouts/header.ejs')-%>
 		</header>
@@ -37,7 +37,16 @@
 		</section>
 
 		<section class="container my-5">
-			<%-include('./layouts/chat.ejs')-%>
+			<h2
+				id="chatsCenter"
+				class="text-center fs-2 fw-bolder mt-5 mb-3 pt-5 pb-3"
+			>
+				Centro de Mensajes
+			</h2>
+			<div class="d-flex justify-content-center align-items-start">
+				<%-include('./layouts/chat.ejs')-%>
+				<%-include('./layouts/chatsPrints.ejs')-%>
+			</div>
 		</section>
 
 		<script src="/socket.io/socket.io.js"></script>
