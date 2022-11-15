@@ -19,6 +19,8 @@ io.on('connection', socket => {
 
 	socket.on('sendMessage', sendMessage => {
 		messages.push(sendMessage);
-		socket.emit('messages', messages);
+		io.sockets.emit('messages', messages);
 	});
+
+	socket.emit('messages', messages);
 });
