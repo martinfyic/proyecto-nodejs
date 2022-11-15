@@ -4,10 +4,10 @@ const products = [];
 const messages = [];
 
 io.on('connection', socket => {
-	console.log('✅ Cliente conectado...');
+	console.log(`✅ Usuario con Id: ${socket.id} conectado...`);
 
 	socket.on('disconnect', () => {
-		console.log('❌ Cliente desconectado...');
+		console.log(`❌ Usuario con Id: ${socket.id} desconectado...`);
 	});
 
 	socket.on('addProduct', addProd => {
