@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
 	if (title.value && price.value && image.value) {
 		socket.emit('addProduct', {
 			title: title.value,
-			price: price.value,
+			price: Number(price.value),
 			image: image.value,
 		});
 		title.value = '';

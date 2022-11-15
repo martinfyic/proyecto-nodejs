@@ -12,8 +12,10 @@ io.on('connection', socket => {
 
 	socket.on('addProduct', addProd => {
 		products.push(addProd);
-		socket.emit('addedProd', products);
+		io.sockets.emit('addedProd', products);
 	});
+
+	socket.emit('addedProd', products);
 
 	socket.on('sendMessage', sendMessage => {
 		messages.push(sendMessage);
