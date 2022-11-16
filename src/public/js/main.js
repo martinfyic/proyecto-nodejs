@@ -43,29 +43,30 @@ socket.on('addedProd', addedProd => {
 });
 
 const formChat = document.getElementById('formChat');
-const userName = document.getElementById('inputName');
+const userEmail = document.getElementById('inputEmail');
 const message = document.getElementById('inputMessage');
 const chat = document.getElementById('messages');
 
 formChat.addEventListener('submit', e => {
 	e.preventDefault();
-
-	if (userName.value && message.value) {
+	if (userEmail.value && message.value) {
 		socket.emit('sendMessage', {
-			name: userName.value,
+			email: userEmail.value,
 			message: message.value,
+			date: new Date().toLocaleString('es-UY'),
 		});
 
-		userName.value = '';
 		message.value = '';
 	}
 });
 
 socket.on('messages', messages => {
+	console.log(messages);
 	const messHTML = messages
 		.map(
 			mess => `
-	<p class="fs-6"><span class="fw-bolder">Usuario:</span> ${mess.name}</p>
+	<p class="fs-5 text-primary fw-bolder">${mess.email}</p>
+	<p class="fs-6 text-primary fw-bolder">[${mess.date}]</p>
 	<p> ---> ${mess.message}</p>
 	<hr />
 	`
