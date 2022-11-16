@@ -65,9 +65,9 @@ socket.on('messages', messages => {
 	const messHTML = messages
 		.map(
 			mess => `
-	<p class="fs-5 text-primary fw-bolder">${mess.email}</p>
-	<p class="fs-6 text-primary fw-bolder">[${mess.date}]</p>
-	<p> ---> ${mess.message}</p>
+	<p class="fs-5 text-primary fw-bolder m-0">${mess.email} 💬</p>
+	<p class="fs-6 text-info m-0">[${mess.date}]</p>
+	<p class="fs-5 fst-italic m-0"> ---> ${mess.message}</p>
 	<hr />
 	`
 		)
