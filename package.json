@@ -1,8 +1,8 @@
 {
 	"name": "proyecto-nodejs",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "src/app.js",
 	"scripts": {
 		"dev": "nodemon src/app.js",
 		"start": "node src/app.js"
