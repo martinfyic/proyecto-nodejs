@@ -17,25 +17,26 @@ const table = document.getElementById('tableProdAdded');
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	if (title.value && price.value && image.value) {
-		socket.emit('addProduct', {
+		const prod = {
 			title: title.value,
 			price: Number(price.value),
-			image: image.value,
-		});
+			url: image.value,
+		};
+		socket.emit('addProduct', prod);
 		title.value = '';
 		price.value = '';
 		image.value = '';
 	}
 });
 
-socket.on('addedProd', addedProd => {
-	const prodHTML = addedProd
+socket.on('addedProd', async addedProd => {
+	const prodHTML = await addedProd
 		.map(
 			prod =>
 				`<tr>
         <td>${prod.title}</td>
         <td>${prod.price}</td>
-        <td><img width="60" src="${prod.image}" alt="${prod.title}"></td>
+        <td><img width="60" src="${prod.url}" alt="${prod.title}"></td>
       </tr>`
 		)
 		.join(' ');
