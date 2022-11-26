@@ -51,18 +51,18 @@ const chat = document.getElementById('messages');
 formChat.addEventListener('submit', e => {
 	e.preventDefault();
 	if (userEmail.value && message.value) {
-		socket.emit('sendMessage', {
+		const saveMessage = {
 			email: userEmail.value,
 			message: message.value,
 			date: new Date().toLocaleString('es-UY'),
-		});
+		};
+		socket.emit('sendMessage', saveMessage);
 
 		message.value = '';
 	}
 });
 
 socket.on('messages', messages => {
-	console.log(messages);
 	const messHTML = messages
 		.map(
 			mess => `
