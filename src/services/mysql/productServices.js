@@ -1,9 +1,14 @@
-const { option } = require('../../db/mysql/mysqlOpt');
-const knex = require('knex')(option);
+const { options } = require('../../db/mysql/mysqlOpt');
+const knex = require('knex')(options);
 
 const getAllProducts = async () => {
-	const allProducts = await knex.from('products').select('*');
-	return allProducts;
+	try {
+		const allProducts = await knex.from('products').select('*');
+		return allProducts;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };
 
 const saveProducts = async prod => {

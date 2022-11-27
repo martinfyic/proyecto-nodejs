@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const option = {
+const options = {
 	client: 'mysql2',
 	connection: {
 		host: process.env.MYSQL_HOST,
@@ -11,4 +11,4 @@ const option = {
 	},
 };
 
-module.exports = { option };
+module.exports = { options };

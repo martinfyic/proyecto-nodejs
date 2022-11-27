@@ -6,7 +6,6 @@ const {
 const {
 	saveMessage,
 	getAllMessages,
-	messageTable,
 } = require('../controllers/messagesController');
 
 io.on('connection', async socket => {
@@ -15,8 +14,6 @@ io.on('connection', async socket => {
 	socket.on('disconnect', () => {
 		console.log(`❌ Usuario con Id: ${socket.id} desconectado...`);
 	});
-
-	// messageTable().then(() => console.log('Tabla sqlite3 creada'));
 
 	socket.on('addProduct', async addProd => {
 		await saveProducts(addProd);

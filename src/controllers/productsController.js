@@ -1,8 +1,13 @@
 const productServices = require('../services/mysql/productServices');
 
 const getAllProducts = async () => {
-	const allProducts = await productServices.getAllProducts();
-	return allProducts;
+	try {
+		const allProducts = await productServices.getAllProducts();
+		return allProducts;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };
 
 const saveProducts = async prod => {

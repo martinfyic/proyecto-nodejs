@@ -18,6 +18,4 @@ const messageTable = async () => {
 	}
 };
 
-module.exports = {
-	messageTable,
-};
+messageTable();
