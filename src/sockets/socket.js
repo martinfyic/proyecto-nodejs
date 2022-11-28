@@ -17,7 +17,6 @@ io.on('connection', async socket => {
 
 	socket.on('addProduct', async addProd => {
 		await saveProducts(addProd);
-		console.log(addProd);
 		io.sockets.emit('addedProd', await getAllProducts());
 	});
 

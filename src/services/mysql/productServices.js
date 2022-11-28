@@ -1,5 +1,5 @@
-const { options } = require('../../db/mysql/mysqlOpt');
-const knex = require('knex')(options);
+const { optionsMySQL } = require('../../db/mysql/mysqlOpt');
+const knex = require('knex')(optionsMySQL);
 
 const getAllProducts = async () => {
 	try {

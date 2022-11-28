@@ -1,5 +1,5 @@
-const { options } = require('../../db/sqlite3/sqlite3Opt');
-const knex = require('knex')(options);
+const { optionsSQLite3 } = require('../../db/sqlite3/sqlite3Opt');
+const knex = require('knex')(optionsSQLite3);
 
 const getAllMessages = async () => {
 	const allMessages = await knex.from('messages').select('*');
