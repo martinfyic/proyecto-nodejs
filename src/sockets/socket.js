@@ -21,7 +21,6 @@ io.on('connection', async socket => {
 	});
 
 	socket.emit('addedProd', await getAllProducts());
-	await getAllProducts();
 
 	socket.on('sendMessage', async sendMessage => {
 		await saveMessage(sendMessage);
