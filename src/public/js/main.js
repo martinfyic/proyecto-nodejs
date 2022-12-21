@@ -45,14 +45,32 @@ socket.on('addedProd', async addedProd => {
 
 const formChat = document.getElementById('formChat');
 const userEmail = document.getElementById('inputEmail');
+const userName = document.getElementById('inputName');
+const userAge = document.getElementById('inputAge');
+const userLastName = document.getElementById('inputLastName');
+const userAlias = document.getElementById('inputAlias');
+const userAvatar = document.getElementById('inputAvatar');
 const message = document.getElementById('inputMessage');
 const chat = document.getElementById('messages');
 
 formChat.addEventListener('submit', e => {
 	e.preventDefault();
-	if (userEmail.value && message.value) {
+	if (
+		userEmail.value &&
+		userName.value &&
+		userAge.value &&
+		userLastName.value &&
+		userAlias.value &&
+		userAvatar.value &&
+		message.value
+	) {
 		const saveMessage = {
-			email: userEmail.value,
+			userEmail: userEmail.value,
+			userName: userName.value,
+			userLastName: userLastName.value,
+			userAge: userAge.value,
+			userAlias: userAlias.value,
+			userAvatar: userAvatar.value,
 			message: message.value,
 			date: new Date().toLocaleString('es-UY'),
 		};
@@ -62,13 +80,14 @@ formChat.addEventListener('submit', e => {
 	}
 });
 
-socket.on('messages', messages => {
-	const messHTML = messages
+socket.on('messages', async messages => {
+	console.log(messages);
+	const messHTML = await messages
 		.map(
 			mess => `
-	<p class="fs-5 text-primary fw-bolder m-0">${mess.email} 💬</p>
-	<p class="fs-6 text-info m-0">[${mess.date}]</p>
-	<p class="fs-5 fst-italic m-0"> ---> ${mess.message}</p>
+	<p class="fs-5 text-primary fw-bolder m-0">${mess.author.id} <span><img src="${mess.author.avatar}" width="40"></span></p>
+	<p class="fs-6 text-info m-0">${mess.date}</p>
+	<p class="fs-5 fst-italic m-0"> --> ${mess.text} ✒️</p>
 	<hr />
 	`
 		)

@@ -3,7 +3,7 @@ const productosTestRoute = express.Router();
 const fakerProductsController = require('../../controllers/fakerProductsController');
 
 productosTestRoute.get(
-	'/v1/api/productos-test',
+	'/api/v1/productos-test',
 	fakerProductsController.renderingFakerProds
 );
 

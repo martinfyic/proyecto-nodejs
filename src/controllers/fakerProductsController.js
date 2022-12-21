@@ -1,5 +1,5 @@
 const fakerProducts = require('../services/faker/fakerProducts');
-const products = fakerProducts(5); // --> 5 productos
+const products = fakerProducts(5);
 
 const renderingFakerProds = (req, res) => {
 	res.render('fakerProds', { products: products });
